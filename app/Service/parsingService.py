@@ -1,5 +1,6 @@
 from app import app
 
+
 def jsonParser(jsonString):
     jsonString= check_json(jsonString)
     if jsonString == "Invalid JSON":
@@ -35,14 +36,13 @@ def jsonParser(jsonString):
                     i+=1
             elif jsonString[i] == "[":
                 i+=1
-                x=""
+                x="["
                 while jsonString[i] != "]":
                     x+=jsonString[i]
                     i+=1
-                x = x.split(',')
-                value = []
-                for j in x:
-                    value.append(jsonParser(j))
+                x+=jsonString[i]
+                i+=1
+                value=jsonArrayParser(x)
             else:
                 while i<len(jsonString) and jsonString[i] != ',':
                     value+=jsonString[i]
@@ -73,3 +73,36 @@ def check_json(jsonString):
         return jsonString[1:-1]
     else:
         return "Invalid JSON"
+
+def jsonArrayParser(arrayString):
+    if arrayString[0]!='[' or arrayString[-1]!=']':
+        return "Invalid String"
+    else:
+        arrayString=arrayString[1:-1]
+        arr = []
+        arrayString=arrayParser(arrayString)
+        for i in arrayString:
+            arr.append(jsonParser(i))
+    return arr
+
+def arrayParser(jsonString):
+    i = 0
+    ans = []
+    while i <len(jsonString):
+        while jsonString[i]!='{':
+            i+=1
+        stack=[]
+        stack.append(jsonString[i])
+        x=jsonString[i]
+        i+=1
+        while i<len(jsonString) and stack:
+            if jsonString[i]=="{":
+                stack.append(jsonString[i])
+            elif jsonString[i]=="}":
+                stack.pop()
+            x+=jsonString[i]
+            i+=1
+        if stack and i ==len(jsonString):
+            return "Invalid Input"
+        ans.append(x)
+    return ans

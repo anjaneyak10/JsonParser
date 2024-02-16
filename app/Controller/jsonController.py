@@ -1,8 +1,8 @@
 from app import app
 from flask import request
 
-from app.Service.jsonArrayParser import jsonArrayParser
-from app.Service.parsingService import jsonParser
+# from app.Service.jsonArrayParser import jsonArrayParser
+from app.Service.parsingService import jsonParser,jsonArrayParser
 
 @app.route('/parseJson', methods = ['POST'])
 def jsonParse():
