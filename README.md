@@ -40,20 +40,4 @@ Content-Type: application/json
 }
 
 
-
-POST / parseJsonArray
-
-[
-{
-  "name": "Bob",
-  "age": 35,
-  "city": "New York"
-},
-{
-  "name": "Allica",
-  "age": 90,
-  "city": "New York"
-}
-]
-
 You will get the output in the form of dictionary. 
