@@ -1,6 +1,8 @@
 # Introduction
 This is a Flask application designed to parse JSON data, both JSON arrays and individual JSON objects. It provides two endpoints: one for parsing JSON arrays (/parseJsonArray) and another for parsing individual JSON objects (/parseJson).
 
+This application can be further extended to analyse json api response from solr and mongoDB. 
+
 # Installation
 ## Clone the repository: 
 https://github.com/anjaneyak10/JsonParserFlask.git
