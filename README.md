@@ -1,21 +1,22 @@
-##Introduction
+# Introduction
 This is a Flask application designed to parse JSON data, both JSON arrays and individual JSON objects. It provides two endpoints: one for parsing JSON arrays (/parseJsonArray) and another for parsing individual JSON objects (/parseJson).
 
-##Installation
-Clone the repository: 
+# Installation
+## Clone the repository: 
+https://github.com/anjaneyak10/JsonParserFlask.git
 
-Install the required dependencies:
+## Install the required dependencies:
 pip install -r requirements.txt
 
-##Usage
-Run the Flask application:
+# Usage
+## Run the Flask application:
 python main.py
 
 Access the endpoints using a web browser or an API testing tool like Postman:
 
 Parsing JSON Array: Send a POST request to /parseJsonArray with a JSON array in the request body. The application will parse the array and return the parsed data.
 
-Example request:
+## Example request:
 
 POST /parseJsonArray
 Content-Type: application/json
